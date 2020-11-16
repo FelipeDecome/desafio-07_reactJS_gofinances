@@ -20,4 +20,8 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  /* #root {
+    max-width: 1120px;
+  } */
 `;
