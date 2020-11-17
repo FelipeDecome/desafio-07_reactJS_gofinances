@@ -27,7 +27,9 @@ const Import: React.FC = () => {
 
     if (!uploadedFiles) return;
 
-    data.append('file', uploadedFiles[0].file);
+    const { file } = uploadedFiles[0];
+
+    data.append('file', file);
 
     try {
       await api.post('/transactions/import', data);
@@ -42,7 +44,7 @@ const Import: React.FC = () => {
     const parsedFiles = files.map(file => ({
       file,
       name: file.name,
-      readableSize: String(file.size),
+      readableSize: filesize(file.size),
     }));
 
     setUploadedFiles(parsedFiles);
